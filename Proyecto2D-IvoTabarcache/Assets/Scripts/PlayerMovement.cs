@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
       else if(movementX > 0 && !isFacingRight){
         Flip();
       }
+
+    
     }
 
     public void Move(float velocity)
@@ -43,4 +45,6 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         isFacingRight = !isFacingRight;
     }
+
+    
 }
