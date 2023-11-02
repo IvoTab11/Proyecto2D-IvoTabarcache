@@ -46,5 +46,17 @@ public class Player : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision){
+      if(collision.gameObject.CompareTag("Objetivo")){
+        enabled=false;
+        FindObjectOfType<GameManager>().LevelComplete();
+
+      }else if(collision.gameObject.CompareTag("Obstaculo")){
+        enabled=false;
+        FindObjectOfType<GameManager>().LevelFailed();
+
+      }
+    }
+
     
 }

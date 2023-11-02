@@ -29,6 +29,16 @@ public class PlayerJump : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
        isGrounded = true; 
+
+       if(collision.gameObject.CompareTag("Objetivo")){
+        enabled=false;
+        FindObjectOfType<GameManager>().LevelComplete();
+
+      }else if(collision.gameObject.CompareTag("Obstaculo")){
+        enabled=false;
+        FindObjectOfType<GameManager>().LevelFailed();
+
+      }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

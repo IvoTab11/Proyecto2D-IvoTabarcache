@@ -6,6 +6,8 @@ TagManager:
   tags:
   - UpperPlatform
   - Escalera
+  - Obstaculo
+  - Objetivo
   layers:
   - Default
   - TransparentFX

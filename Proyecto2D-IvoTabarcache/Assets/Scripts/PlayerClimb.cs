@@ -45,6 +45,18 @@ public class PlayerClimb : MonoBehaviour
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Plataformas"), LayerMask.NameToLayer("Personaje"), false);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+      if(collision.gameObject.CompareTag("Objetivo")){
+        enabled=false;
+        FindObjectOfType<GameManager>().LevelComplete();
+
+      }else if(collision.gameObject.CompareTag("Obstaculo")){
+        enabled=false;
+        FindObjectOfType<GameManager>().LevelFailed();
+
+      }
+    }
     // void OnTriggerEnter2D(Collider2D other)
     // {
     //     if (other.CompareTag("Escalera"))
