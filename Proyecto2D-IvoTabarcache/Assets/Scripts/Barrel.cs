@@ -13,6 +13,8 @@ public class Barrel : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       rb.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Plataformas")){
+         rb.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
+        }
     }
 }
