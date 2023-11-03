@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelFailed(){
         lives--;
+        Debug.Log("Vidas: "+ lives);
 
         if(lives<=0){
             NewGame();
