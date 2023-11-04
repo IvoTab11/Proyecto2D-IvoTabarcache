@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int lives;
@@ -21,10 +21,22 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete(){
         score+=1000;
-
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+    
+       if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+       {
+        SceneManager.LoadScene(nextSceneIndex);
+       }
+       else
+       {
+        // Aquí cargas una escena específica (por ejemplo, la escena principal o un menú).
+        SceneManager.LoadScene(3); // Reemplaza "MainMenu" con el nombre de la escena que desees cargar.
+        }
     }
 
     public void LevelFailed(){
+        SceneManager.LoadScene(4);
         lives--;
         Debug.Log("Vidas: "+ lives);
 
