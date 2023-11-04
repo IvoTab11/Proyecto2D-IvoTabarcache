@@ -25,23 +25,23 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("isRunning", false);
       }
 
-      // if((Input.GetAxis("Vertical") != 0) && (capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Escaleras")))){
-      //   animator.SetBool("isClimbing", true);
-      // }
-      // else
-      // {
-      //   animator.SetBool("isClimbing", false);
-      // }
-
-
-      //---------------------------------------
-      if(capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Escaleras"))){
+      if((Input.GetAxis("Vertical") != 0) && (capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Escaleras")))){
         animator.SetBool("isClimbing", true);
       }
       else
       {
         animator.SetBool("isClimbing", false);
       }
+
+
+      //---------------------------------------
+      // if(capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Escaleras"))){
+      //   animator.SetBool("isClimbing", true);
+      // }
+      // else
+      // {
+      //   animator.SetBool("isClimbing", false);
+      // }
       //-----------------------------------
       // if (Input.GetAxis("Vertical") != 0)
       // {
