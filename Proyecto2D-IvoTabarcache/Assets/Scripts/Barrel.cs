@@ -6,6 +6,7 @@ public class Barrel : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed=1f;
+    private float posicionY=-6;
 
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
@@ -15,6 +16,16 @@ public class Barrel : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Plataformas")){
          rb.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
+        }
+    }
+
+    void Update(){
+        EliminarBarril();
+    }
+
+    private void EliminarBarril(){
+        if(this.transform.position.y<=posicionY){
+            Destroy(this.gameObject);
         }
     }
 }
