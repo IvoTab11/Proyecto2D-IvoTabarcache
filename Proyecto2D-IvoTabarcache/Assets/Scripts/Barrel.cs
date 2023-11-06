@@ -17,6 +17,9 @@ public class Barrel : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Plataformas")){
          rb.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
         }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Fuegos")){
+         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Barriles"), LayerMask.NameToLayer("Fuegos"), true);
+        }
     }
 
     void Update(){
