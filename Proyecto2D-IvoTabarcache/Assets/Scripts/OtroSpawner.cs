@@ -14,7 +14,7 @@ public class OtroSpawner : MonoBehaviour
 
     private void Spawn(){
         // Genera una posición aleatoria en el eje X entre minX y maxX
-        float randomX = Random.Range(-4.40f, 5.0f);
+        float randomX = Random.Range(-4.40f, 3.6f);
         
         // Configura la posición del barril en la posición aleatoria de X
         Vector3 spawnPosition = new Vector3(randomX, transform.position.y, transform.position.z);
