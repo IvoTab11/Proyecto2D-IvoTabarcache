@@ -6,7 +6,7 @@ public class Barrel : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed=1f;
-    private float posicionY=-6;
+    private float posicionY=-5.5f;
 
     private void Awake(){
         rb = GetComponent<Rigidbody2D>();
@@ -19,6 +19,9 @@ public class Barrel : MonoBehaviour
         }
         if(collision.gameObject.layer == LayerMask.NameToLayer("Fuegos")){
          Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Barriles"), LayerMask.NameToLayer("Fuegos"), true);
+        }
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Barriles2")){
+         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Barriles"), LayerMask.NameToLayer("Barriles2"), true);
         }
     }
 
