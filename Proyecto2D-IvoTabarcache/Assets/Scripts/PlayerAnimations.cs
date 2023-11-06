@@ -31,6 +31,7 @@ public class PlayerAnimations : MonoBehaviour
       else
       {
         animator.SetBool("isClimbing", false);
+        animator.SetBool("isJumping", false);
       }
 
 
