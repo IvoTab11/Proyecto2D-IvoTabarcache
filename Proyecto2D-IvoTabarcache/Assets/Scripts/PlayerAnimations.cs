@@ -6,6 +6,7 @@ public class PlayerAnimations : MonoBehaviour
 {
     private Animator animator;
     private CapsuleCollider2D capsuleCollider2D;
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -27,11 +28,12 @@ public class PlayerAnimations : MonoBehaviour
 
       if((Input.GetAxis("Vertical") != 0) && (capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Escaleras")))){
         animator.SetBool("isClimbing", true);
+        animator.SetBool("isJumping", false);
       }
       else
       {
         animator.SetBool("isClimbing", false);
-        animator.SetBool("isJumping", false);
+        //animator.SetBool("isJumping", false);
       }
 
 

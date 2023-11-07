@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // private new Rigidbody2D rigidbody;
-    
-    // public void Awake(){
-    //     rigidbody = GetComponent<Rigidbody2D>(); //Obtenemos el componente Rigidbody2D
-    // }
-
     [SerializeField] private float movementSpeed = 1250f;
     private bool isFacingRight = true;
     private Rigidbody2D rb;

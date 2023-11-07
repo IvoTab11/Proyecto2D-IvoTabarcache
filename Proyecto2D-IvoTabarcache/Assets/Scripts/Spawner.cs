@@ -8,7 +8,8 @@ public class Spawner : MonoBehaviour
     //private GameObject barril;
     void Start()
     {
-        Spawn();
+        InvokeRepeating("Spawn", 0.0f, Random.Range(2f,4f));
+        //Spawn();
     }
 
     // Update is called once per frame
@@ -16,17 +17,7 @@ public class Spawner : MonoBehaviour
 
     public void Spawn(){
         Instantiate(prefab, transform.position, Quaternion.identity);
-        Invoke(nameof(Spawn), Random.Range(2f,4f));
-
-        // if ((transform.position.x >= -6.0f) && (transform.position.y>=-6.0f))
-        // {
-        //     // Destruye el objeto cuando alcanza la posición destino.
-        //     Destroy(prefab);
-        // }
-        // if ((barril.transform.position.x >= -6.0f) && (barril.transform.position.y >= -6.0f))
-        // {
-        //     Destroy(barril);
-        // }
+        //Invoke(nameof(Spawn), Random.Range(2f,4f));
     }
 
     // void Update()

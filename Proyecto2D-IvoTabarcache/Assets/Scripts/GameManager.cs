@@ -9,18 +9,18 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NewGame();
+        //NewGame();
     }
 
     // Update is called once per frame
-    private void NewGame(){
-        lives=3;
-        score=0;
+    // private void NewGame(){
+    //     // lives=3;
+    //     // score=0;
 
-    }
+    // }
 
     public void LevelComplete(){
-        score+=1000;
+        //score+=1000;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
          int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
     
@@ -30,19 +30,21 @@ public class GameManager : MonoBehaviour
        }
        else
        {
-        // Aquí cargas una escena específica (por ejemplo, la escena principal o un menú).
-        SceneManager.LoadScene(3); // Reemplaza "MainMenu" con el nombre de la escena que desees cargar.
+        SceneManager.LoadScene(3); 
         }
     }
 
     public void LevelFailed(){
         SceneManager.LoadScene(4);
-        lives--;
-        Debug.Log("Vidas: "+ lives);
+        // lives-=1;
+        // Debug.Log("Vidas: "+ lives);
 
-        if(lives<=0){
-            NewGame();
-        }
+        // if(lives<=0){
+        //     NewGame();
+        // }
+        // else{
+        //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // }
         
 
     }

@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class EscenaPerder : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void Volver(){
+        SceneManager.LoadScene(0);
     }
 
     // Update is called once per frame

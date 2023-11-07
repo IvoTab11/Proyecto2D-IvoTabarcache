@@ -8,6 +8,7 @@ TagManager:
   - Escalera
   - Obstaculo
   - Objetivo
+  - Ground
   layers:
   - Default
   - TransparentFX
