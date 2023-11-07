@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Gestiona la escena de derrota.
 public class EscenaPerder : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Permite volver al Menú Principal.
     public void Volver(){
         SceneManager.LoadScene(0);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Permite regresar al nivel 1 al presionar la barra espaciadora.
         if(Input.GetKeyDown(KeyCode.Space)){
             SceneManager.LoadScene(1);
         }

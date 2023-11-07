@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gestiona el salto del personaje.
 public class PlayerJump : MonoBehaviour
 {
    [SerializeField] private float jumpForce = 1f;
+   //Indica si el personaje está en la platafomra
     private bool isGrounded;
+    //Referencia al componente Rigidbody2D del personaje.
     private Rigidbody2D rb;
+    //Referencia al colisionador del personaje.
     private CapsuleCollider2D capsuleCollider2D;
-   // private Collider2D upperPlatformCollider;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider2D=GetComponent<CapsuleCollider2D>();
-        //upperPlatformCollider = GameObject.Find("Platform").GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Se llama a la función Jump() si el personaje está en una plataforma y si se presiona el boton de saltar
         if(isGrounded && Input.GetButtonDown("Jump"))
         {
            Jump(); 
@@ -29,44 +31,17 @@ public class PlayerJump : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
        isGrounded = true; 
-
-       if(collision.gameObject.CompareTag("Objetivo")){
-        enabled=false;
-        FindObjectOfType<GameManager>().LevelComplete();
-
-      }else if(collision.gameObject.CompareTag("Obstaculo")){
-        enabled=false;
-        FindObjectOfType<GameManager>().LevelFailed();
-
-      }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
     }
-
+    //Permite saltar al personaje.
     public void Jump()
     {
-        //Physics2D.IgnoreCollision(playerCollider, upperPlatformCollider, !isGrounded);
-        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Plataformas"), LayerMask.NameToLayer("Personaje"), true);
         rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);
-
-        //StartCoroutine("ActivarColision");
-         StartCoroutine(RestoreCollision());
     }
     
-    private IEnumerator RestoreCollision()
-{
-    yield return new WaitForSeconds(1);  // Ajusta el tiempo necesario para que las colisiones se restauren adecuadamente
 
-    // Restaura las colisiones entre el personaje y las plataformas
-    Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Personaje"), LayerMask.NameToLayer("Plataformas"), false);
-}
-    // IEnumerator ActivarColision()
-    // {
-    //     yield return new WaitForSeconds(1);
-    //     // Vuelve a habilitar las colisiones entre el jugador y la plataforma superior
-    //     Physics2D.IgnoreCollision(playerCollider, upperPlatformCollider, false);
-    // }
 }

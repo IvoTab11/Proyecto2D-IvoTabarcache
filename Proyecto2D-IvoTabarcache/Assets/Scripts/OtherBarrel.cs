@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gestiona el comportamiento de los barriles que caen verticalmente.
 public class OtherBarrel : MonoBehaviour
 {
     private float posicionY=-5.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
+    // OnCollisionEnter2D() maneja las colisiones con otros objetos.
     private void OnCollisionEnter2D(Collision2D collision){
+        // Comprueba si la colisión es con objetos de diferentes capas.
         if(collision.gameObject.layer == LayerMask.NameToLayer("Plataformas")){
+            // Ignora la colisión entre la capa "Barriles2" y la capa "Plataformas".
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Barriles2"), LayerMask.NameToLayer("Plataformas"), true);
         }
         if(collision.gameObject.layer == LayerMask.NameToLayer("Barriles")){
@@ -24,7 +23,6 @@ public class OtherBarrel : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         EliminarBarril();
